@@ -35,14 +35,14 @@ public interface IComment extends Serializable {
     public Integer getJobofferid();
 
     /**
-     * Setter for <code>Recruitment.Comment.accpuntType</code>. 1为企业，2为管理员，3为用户
+     * Setter for <code>Recruitment.Comment.accountType</code>. 1为企业，2为管理员，3为用户
      */
-    public void setAccpunttype(Integer value);
+    public void setAccounttype(Integer value);
 
     /**
-     * Getter for <code>Recruitment.Comment.accpuntType</code>. 1为企业，2为管理员，3为用户
+     * Getter for <code>Recruitment.Comment.accountType</code>. 1为企业，2为管理员，3为用户
      */
-    public Integer getAccpunttype();
+    public Integer getAccounttype();
 
     /**
      * Setter for <code>Recruitment.Comment.accountId</code>. 评论者id 对应（UserAccount:account)

@@ -151,14 +151,14 @@ public class ResumeDao extends DAOImpl<ResumeRecord, com.doteadore.recruitment_b
     /**
      * Fetch records that have <code>education BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchRangeOfEducation(String lowerInclusive, String upperInclusive) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchRangeOfEducation(Integer lowerInclusive, Integer upperInclusive) {
         return fetchRange(Resume.RESUME.EDUCATION, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>education IN (values)</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByEducation(String... values) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByEducation(Integer... values) {
         return fetch(Resume.RESUME.EDUCATION, values);
     }
 
@@ -221,14 +221,14 @@ public class ResumeDao extends DAOImpl<ResumeRecord, com.doteadore.recruitment_b
     /**
      * Fetch records that have <code>state BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchRangeOfState(String lowerInclusive, String upperInclusive) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchRangeOfState(Integer lowerInclusive, Integer upperInclusive) {
         return fetchRange(Resume.RESUME.STATE, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>state IN (values)</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByState(String... values) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByState(Integer... values) {
         return fetch(Resume.RESUME.STATE, values);
     }
 
@@ -272,5 +272,19 @@ public class ResumeDao extends DAOImpl<ResumeRecord, com.doteadore.recruitment_b
      */
     public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByPosttime(LocalDateTime... values) {
         return fetch(Resume.RESUME.POSTTIME, values);
+    }
+
+    /**
+     * Fetch records that have <code>companyID BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchRangeOfCompanyid(String lowerInclusive, String upperInclusive) {
+        return fetchRange(Resume.RESUME.COMPANYID, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>companyID IN (values)</code>
+     */
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Resume> fetchByCompanyid(String... values) {
+        return fetch(Resume.RESUME.COMPANYID, values);
     }
 }

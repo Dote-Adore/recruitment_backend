@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Resume implements IResume {
 
-    private static final long serialVersionUID = -1957047357;
+    private static final long serialVersionUID = 1633784675;
 
     private Integer       id;
     private String        userid;
@@ -24,15 +24,16 @@ public class Resume implements IResume {
     private Integer       sex;
     private String        school;
     private Integer       graduationyear;
-    private String        education;
+    private Integer       education;
     private String        city;
     private String        tele;
     private String        email;
     private String        attatchmenturl;
-    private String        state;
+    private Integer       state;
     private Integer       ispassed;
     private LocalDateTime statetime;
     private LocalDateTime posttime;
+    private String        companyid;
 
     public Resume() {}
 
@@ -53,6 +54,7 @@ public class Resume implements IResume {
         this.ispassed = value.getIspassed();
         this.statetime = value.getStatetime();
         this.posttime = value.getPosttime();
+        this.companyid = value.getCompanyid();
     }
 
     public Resume(
@@ -63,15 +65,16 @@ public class Resume implements IResume {
         Integer       sex,
         String        school,
         Integer       graduationyear,
-        String        education,
+        Integer       education,
         String        city,
         String        tele,
         String        email,
         String        attatchmenturl,
-        String        state,
+        Integer       state,
         Integer       ispassed,
         LocalDateTime statetime,
-        LocalDateTime posttime
+        LocalDateTime posttime,
+        String        companyid
     ) {
         this.id = id;
         this.userid = userid;
@@ -89,6 +92,7 @@ public class Resume implements IResume {
         this.ispassed = ispassed;
         this.statetime = statetime;
         this.posttime = posttime;
+        this.companyid = companyid;
     }
 
     @Override
@@ -162,12 +166,12 @@ public class Resume implements IResume {
     }
 
     @Override
-    public String getEducation() {
+    public Integer getEducation() {
         return this.education;
     }
 
     @Override
-    public void setEducation(String education) {
+    public void setEducation(Integer education) {
         this.education = education;
     }
 
@@ -212,12 +216,12 @@ public class Resume implements IResume {
     }
 
     @Override
-    public String getState() {
+    public Integer getState() {
         return this.state;
     }
 
     @Override
-    public void setState(String state) {
+    public void setState(Integer state) {
         this.state = state;
     }
 
@@ -252,6 +256,16 @@ public class Resume implements IResume {
     }
 
     @Override
+    public String getCompanyid() {
+        return this.companyid;
+    }
+
+    @Override
+    public void setCompanyid(String companyid) {
+        this.companyid = companyid;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Resume (");
 
@@ -271,6 +285,7 @@ public class Resume implements IResume {
         sb.append(", ").append(ispassed);
         sb.append(", ").append(statetime);
         sb.append(", ").append(posttime);
+        sb.append(", ").append(companyid);
 
         sb.append(")");
         return sb.toString();
@@ -298,6 +313,7 @@ public class Resume implements IResume {
         setIspassed(from.getIspassed());
         setStatetime(from.getStatetime());
         setPosttime(from.getPosttime());
+        setCompanyid(from.getCompanyid());
     }
 
     @Override

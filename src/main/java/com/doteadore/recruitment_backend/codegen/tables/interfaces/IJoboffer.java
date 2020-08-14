@@ -37,12 +37,12 @@ public interface IJoboffer extends Serializable {
     /**
      * Setter for <code>Recruitment.JobOffer.professionType</code>. 职业类别
      */
-    public void setProfessiontype(String value);
+    public void setProfessiontype(Integer value);
 
     /**
      * Getter for <code>Recruitment.JobOffer.professionType</code>. 职业类别
      */
-    public String getProfessiontype();
+    public Integer getProfessiontype();
 
     /**
      * Setter for <code>Recruitment.JobOffer.title</code>. 标题
@@ -103,6 +103,16 @@ public interface IJoboffer extends Serializable {
      * Getter for <code>Recruitment.JobOffer.endTime</code>. 结束时间
      */
     public LocalDateTime getEndtime();
+
+    /**
+     * Setter for <code>Recruitment.JobOffer.position</code>.
+     */
+    public void setPosition(Integer value);
+
+    /**
+     * Getter for <code>Recruitment.JobOffer.position</code>.
+     */
+    public Integer getPosition();
 
     // -------------------------------------------------------------------------
     // FROM and INTO

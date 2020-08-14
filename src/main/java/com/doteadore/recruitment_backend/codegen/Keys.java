@@ -90,8 +90,11 @@ public class Keys {
     public static final ForeignKey<HomepushapplicationRecord, AdminaccountRecord> HOMEPUSHAPPLICATION_FK3 = ForeignKeys0.HOMEPUSHAPPLICATION_FK3;
     public static final ForeignKey<HomepushapplicationRecord, JobofferRecord> HOMEPUSHAPPLICATION_FK2 = ForeignKeys0.HOMEPUSHAPPLICATION_FK2;
     public static final ForeignKey<JobofferRecord, CompanyaccountRecord> JOBOFFER_FK1 = ForeignKeys0.JOBOFFER_FK1;
+    public static final ForeignKey<JobofferRecord, ProfessiontypeRecord> JONOFFER_FK2 = ForeignKeys0.JONOFFER_FK2;
+    public static final ForeignKey<JobofferRecord, ProfessionpositionRecord> POSITION = ForeignKeys0.POSITION;
     public static final ForeignKey<ResumeRecord, UseraccontRecord> RESUME_FK1 = ForeignKeys0.RESUME_FK1;
     public static final ForeignKey<ResumeRecord, JobofferRecord> RESUME_FK2 = ForeignKeys0.RESUME_FK2;
+    public static final ForeignKey<ResumeRecord, EducationRecord> RESUME_FK3 = ForeignKeys0.RESUME_FK3;
     public static final ForeignKey<UserdetailinfoRecord, UseraccontRecord> USERDETAILINFO_FK1 = ForeignKeys0.USERDETAILINFO_FK1;
 
     // -------------------------------------------------------------------------
@@ -136,8 +139,11 @@ public class Keys {
         public static final ForeignKey<HomepushapplicationRecord, AdminaccountRecord> HOMEPUSHAPPLICATION_FK3 = Internal.createForeignKey(Keys.KEY_ADMINACCOUNT_PRIMARY, Homepushapplication.HOMEPUSHAPPLICATION, "HomePushApplication_fk3", new TableField[] { Homepushapplication.HOMEPUSHAPPLICATION.HANDLEADMINID }, true);
         public static final ForeignKey<HomepushapplicationRecord, JobofferRecord> HOMEPUSHAPPLICATION_FK2 = Internal.createForeignKey(Keys.KEY_JOBOFFER_PRIMARY, Homepushapplication.HOMEPUSHAPPLICATION, "HomePushApplication_fk2", new TableField[] { Homepushapplication.HOMEPUSHAPPLICATION.JOBOFFERID }, true);
         public static final ForeignKey<JobofferRecord, CompanyaccountRecord> JOBOFFER_FK1 = Internal.createForeignKey(Keys.KEY_COMPANYACCOUNT_PRIMARY, Joboffer.JOBOFFER, "JobOffer_fk1", new TableField[] { Joboffer.JOBOFFER.COMPANY }, true);
+        public static final ForeignKey<JobofferRecord, ProfessiontypeRecord> JONOFFER_FK2 = Internal.createForeignKey(Keys.KEY_PROFESSIONTYPE_PRIMARY, Joboffer.JOBOFFER, "JonOffer_fk2", new TableField[] { Joboffer.JOBOFFER.PROFESSIONTYPE }, true);
+        public static final ForeignKey<JobofferRecord, ProfessionpositionRecord> POSITION = Internal.createForeignKey(Keys.KEY_PROFESSIONPOSITION_PRIMARY, Joboffer.JOBOFFER, "position", new TableField[] { Joboffer.JOBOFFER.POSITION }, true);
         public static final ForeignKey<ResumeRecord, UseraccontRecord> RESUME_FK1 = Internal.createForeignKey(Keys.KEY_USERACCONT_PRIMARY, Resume.RESUME, "Resume_fk1", new TableField[] { Resume.RESUME.USERID }, true);
         public static final ForeignKey<ResumeRecord, JobofferRecord> RESUME_FK2 = Internal.createForeignKey(Keys.KEY_JOBOFFER_PRIMARY, Resume.RESUME, "Resume_fk2", new TableField[] { Resume.RESUME.JOBID }, true);
+        public static final ForeignKey<ResumeRecord, EducationRecord> RESUME_FK3 = Internal.createForeignKey(Keys.KEY_EDUCATION_PRIMARY, Resume.RESUME, "Resume_fk3", new TableField[] { Resume.RESUME.EDUCATION }, true);
         public static final ForeignKey<UserdetailinfoRecord, UseraccontRecord> USERDETAILINFO_FK1 = Internal.createForeignKey(Keys.KEY_USERACCONT_PRIMARY, Userdetailinfo.USERDETAILINFO, "UserDetailInfo_fk1", new TableField[] { Userdetailinfo.USERDETAILINFO.ACCOUNT }, true);
     }
 }

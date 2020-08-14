@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.jooq.Configuration;
 import org.jooq.impl.DAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
@@ -31,6 +32,7 @@ public class CompanyaccountDao extends DAOImpl<CompanyaccountRecord, com.doteado
     /**
      * Create a new CompanyaccountDao with an attached configuration
      */
+    @Autowired
     public CompanyaccountDao(Configuration configuration) {
         super(Companyaccount.COMPANYACCOUNT, com.doteadore.recruitment_backend.codegen.tables.pojos.Companyaccount.class, configuration);
     }

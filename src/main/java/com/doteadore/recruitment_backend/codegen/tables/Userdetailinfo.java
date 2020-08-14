@@ -31,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Userdetailinfo extends TableImpl<UserdetailinfoRecord> {
 
-    private static final long serialVersionUID = 1836878935;
+    private static final long serialVersionUID = 1857768120;
 
     /**
      * The reference instance of <code>Recruitment.UserDetailInfo</code>
@@ -54,47 +54,47 @@ public class Userdetailinfo extends TableImpl<UserdetailinfoRecord> {
     /**
      * The column <code>Recruitment.UserDetailInfo.name</code>. 用户姓名
      */
-    public final TableField<UserdetailinfoRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false), this, "用户姓名");
+    public final TableField<UserdetailinfoRecord, String> NAME = createField(DSL.name("name"), org.jooq.impl.SQLDataType.VARCHAR(10), this, "用户姓名");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.sex</code>. 性别（0代表女，1代表男）
      */
-    public final TableField<UserdetailinfoRecord, Integer> SEX = createField(DSL.name("sex"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "性别（0代表女，1代表男）");
+    public final TableField<UserdetailinfoRecord, Integer> SEX = createField(DSL.name("sex"), org.jooq.impl.SQLDataType.INTEGER, this, "性别（0代表女，1代表男）");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.school</code>. 所在学校
      */
-    public final TableField<UserdetailinfoRecord, String> SCHOOL = createField(DSL.name("school"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "所在学校");
+    public final TableField<UserdetailinfoRecord, String> SCHOOL = createField(DSL.name("school"), org.jooq.impl.SQLDataType.VARCHAR(30), this, "所在学校");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.graduationYear</code>. 毕业年份
      */
-    public final TableField<UserdetailinfoRecord, Integer> GRADUATIONYEAR = createField(DSL.name("graduationYear"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "毕业年份");
+    public final TableField<UserdetailinfoRecord, Integer> GRADUATIONYEAR = createField(DSL.name("graduationYear"), org.jooq.impl.SQLDataType.INTEGER, this, "毕业年份");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.education</code>. 最高学历
      */
-    public final TableField<UserdetailinfoRecord, String> EDUCATION = createField(DSL.name("education"), org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false), this, "最高学历");
+    public final TableField<UserdetailinfoRecord, String> EDUCATION = createField(DSL.name("education"), org.jooq.impl.SQLDataType.VARCHAR(10), this, "最高学历");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.tele</code>. 电话
      */
-    public final TableField<UserdetailinfoRecord, String> TELE = createField(DSL.name("tele"), org.jooq.impl.SQLDataType.VARCHAR(15).nullable(false), this, "电话");
+    public final TableField<UserdetailinfoRecord, String> TELE = createField(DSL.name("tele"), org.jooq.impl.SQLDataType.VARCHAR(15), this, "电话");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.email</code>. 邮箱
      */
-    public final TableField<UserdetailinfoRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "邮箱");
+    public final TableField<UserdetailinfoRecord, String> EMAIL = createField(DSL.name("email"), org.jooq.impl.SQLDataType.VARCHAR(20), this, "邮箱");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.city</code>.
      */
-    public final TableField<UserdetailinfoRecord, String> CITY = createField(DSL.name("city"), org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "");
+    public final TableField<UserdetailinfoRecord, String> CITY = createField(DSL.name("city"), org.jooq.impl.SQLDataType.VARCHAR(20), this, "");
 
     /**
      * The column <code>Recruitment.UserDetailInfo.description</code>.
      */
-    public final TableField<UserdetailinfoRecord, String> DESCRIPTION = createField(DSL.name("description"), org.jooq.impl.SQLDataType.VARCHAR(255).nullable(false), this, "");
+    public final TableField<UserdetailinfoRecord, String> DESCRIPTION = createField(DSL.name("description"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "");
 
     /**
      * Create a <code>Recruitment.UserDetailInfo</code> table reference

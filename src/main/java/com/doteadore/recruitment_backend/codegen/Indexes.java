@@ -34,8 +34,11 @@ public class Indexes {
     public static final Index HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK2 = Indexes0.HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK2;
     public static final Index HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK3 = Indexes0.HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK3;
     public static final Index JOBOFFER_JOBOFFER_FK1 = Indexes0.JOBOFFER_JOBOFFER_FK1;
+    public static final Index JOBOFFER_JONOFFER_FK2 = Indexes0.JOBOFFER_JONOFFER_FK2;
+    public static final Index JOBOFFER_POSITION = Indexes0.JOBOFFER_POSITION;
     public static final Index RESUME_RESUME_FK1 = Indexes0.RESUME_RESUME_FK1;
     public static final Index RESUME_RESUME_FK2 = Indexes0.RESUME_RESUME_FK2;
+    public static final Index RESUME_RESUME_FK3 = Indexes0.RESUME_RESUME_FK3;
 
     // -------------------------------------------------------------------------
     // [#1459] distribute members to avoid static initialisers > 64kb
@@ -51,7 +54,10 @@ public class Indexes {
         public static Index HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK2 = Internal.createIndex("HomePushApplication_fk2", Homepushapplication.HOMEPUSHAPPLICATION, new OrderField[] { Homepushapplication.HOMEPUSHAPPLICATION.JOBOFFERID }, false);
         public static Index HOMEPUSHAPPLICATION_HOMEPUSHAPPLICATION_FK3 = Internal.createIndex("HomePushApplication_fk3", Homepushapplication.HOMEPUSHAPPLICATION, new OrderField[] { Homepushapplication.HOMEPUSHAPPLICATION.HANDLEADMINID }, false);
         public static Index JOBOFFER_JOBOFFER_FK1 = Internal.createIndex("JobOffer_fk1", Joboffer.JOBOFFER, new OrderField[] { Joboffer.JOBOFFER.COMPANY }, false);
+        public static Index JOBOFFER_JONOFFER_FK2 = Internal.createIndex("JonOffer_fk2", Joboffer.JOBOFFER, new OrderField[] { Joboffer.JOBOFFER.PROFESSIONTYPE }, false);
+        public static Index JOBOFFER_POSITION = Internal.createIndex("position", Joboffer.JOBOFFER, new OrderField[] { Joboffer.JOBOFFER.POSITION }, false);
         public static Index RESUME_RESUME_FK1 = Internal.createIndex("Resume_fk1", Resume.RESUME, new OrderField[] { Resume.RESUME.USERID }, false);
         public static Index RESUME_RESUME_FK2 = Internal.createIndex("Resume_fk2", Resume.RESUME, new OrderField[] { Resume.RESUME.JOBID }, false);
+        public static Index RESUME_RESUME_FK3 = Internal.createIndex("Resume_fk3", Resume.RESUME, new OrderField[] { Resume.RESUME.EDUCATION }, false);
     }
 }

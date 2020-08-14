@@ -75,17 +75,17 @@ public class CommentDao extends DAOImpl<CommentRecord, com.doteadore.recruitment
     }
 
     /**
-     * Fetch records that have <code>accpuntType BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>accountType BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Comment> fetchRangeOfAccpunttype(Integer lowerInclusive, Integer upperInclusive) {
-        return fetchRange(Comment.COMMENT.ACCPUNTTYPE, lowerInclusive, upperInclusive);
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Comment> fetchRangeOfAccounttype(Integer lowerInclusive, Integer upperInclusive) {
+        return fetchRange(Comment.COMMENT.ACCOUNTTYPE, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>accpuntType IN (values)</code>
+     * Fetch records that have <code>accountType IN (values)</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Comment> fetchByAccpunttype(Integer... values) {
-        return fetch(Comment.COMMENT.ACCPUNTTYPE, values);
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Comment> fetchByAccounttype(Integer... values) {
+        return fetch(Comment.COMMENT.ACCOUNTTYPE, values);
     }
 
     /**

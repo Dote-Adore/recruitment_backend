@@ -4,9 +4,11 @@ import com.doteadore.recruitment_backend.codegen.tables.daos.UseraccontDao;
 import com.doteadore.recruitment_backend.codegen.tables.daos.UserdetailinfoDao;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Useraccont;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Userdetailinfo;
+import com.doteadore.recruitment_backend.codegen.tables.records.UseraccontRecord;
 import com.doteadore.recruitment_backend.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.jooq.DSLContext;
+import org.jooq.Record;
 import org.jooq.Result;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +31,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Useraccont getUser(String accountID) {
-        return useraccontDao.findById(accountID);
+        com.doteadore.recruitment_backend.codegen.tables.Useraccont table = com.doteadore.recruitment_backend.codegen.tables.Useraccont.USERACCONT;
+        Record res = dslContext.select(table.ACCOUNT,table.NICKNAME,table.AVATARURL).from(table).where(table.ACCOUNT.eq(accountID))
+                .fetchOne();
+        return res.into(Useraccont.class);
+
     }
 
     @Override

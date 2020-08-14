@@ -19,7 +19,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Joboffer extends TableImpl<JobofferRecord> {
 
-    private static final long serialVersionUID = -2043517187;
+    private static final long serialVersionUID = 1361465617;
 
     /**
      * The reference instance of <code>Recruitment.JobOffer</code>
@@ -63,7 +63,7 @@ public class Joboffer extends TableImpl<JobofferRecord> {
     /**
      * The column <code>Recruitment.JobOffer.professionType</code>. 职业类别
      */
-    public final TableField<JobofferRecord, String> PROFESSIONTYPE = createField(DSL.name("professionType"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "职业类别");
+    public final TableField<JobofferRecord, Integer> PROFESSIONTYPE = createField(DSL.name("professionType"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "职业类别");
 
     /**
      * The column <code>Recruitment.JobOffer.title</code>. 标题
@@ -94,6 +94,11 @@ public class Joboffer extends TableImpl<JobofferRecord> {
      * The column <code>Recruitment.JobOffer.endTime</code>. 结束时间
      */
     public final TableField<JobofferRecord, LocalDateTime> ENDTIME = createField(DSL.name("endTime"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "结束时间");
+
+    /**
+     * The column <code>Recruitment.JobOffer.position</code>.
+     */
+    public final TableField<JobofferRecord, Integer> POSITION = createField(DSL.name("position"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * Create a <code>Recruitment.JobOffer</code> table reference
@@ -135,7 +140,7 @@ public class Joboffer extends TableImpl<JobofferRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.JOBOFFER_JOBOFFER_FK1);
+        return Arrays.<Index>asList(Indexes.JOBOFFER_JOBOFFER_FK1, Indexes.JOBOFFER_JONOFFER_FK2, Indexes.JOBOFFER_POSITION);
     }
 
     @Override
@@ -155,11 +160,19 @@ public class Joboffer extends TableImpl<JobofferRecord> {
 
     @Override
     public List<ForeignKey<JobofferRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<JobofferRecord, ?>>asList(Keys.JOBOFFER_FK1);
+        return Arrays.<ForeignKey<JobofferRecord, ?>>asList(Keys.JOBOFFER_FK1, Keys.JONOFFER_FK2, Keys.POSITION);
     }
 
     public Companyaccount companyaccount() {
         return new Companyaccount(this, Keys.JOBOFFER_FK1);
+    }
+
+    public Professiontype professiontype() {
+        return new Professiontype(this, Keys.JONOFFER_FK2);
+    }
+
+    public Professionposition professionposition() {
+        return new Professionposition(this, Keys.POSITION);
     }
 
     @Override
@@ -189,11 +202,11 @@ public class Joboffer extends TableImpl<JobofferRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, String, String, String, String, Integer, LocalDateTime, String, LocalDateTime> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, String, Integer, String, String, Integer, LocalDateTime, String, LocalDateTime, Integer> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 }

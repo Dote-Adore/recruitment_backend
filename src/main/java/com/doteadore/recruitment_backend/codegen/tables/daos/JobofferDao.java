@@ -77,14 +77,14 @@ public class JobofferDao extends DAOImpl<JobofferRecord, com.doteadore.recruitme
     /**
      * Fetch records that have <code>professionType BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchRangeOfProfessiontype(String lowerInclusive, String upperInclusive) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchRangeOfProfessiontype(Integer lowerInclusive, Integer upperInclusive) {
         return fetchRange(Joboffer.JOBOFFER.PROFESSIONTYPE, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>professionType IN (values)</code>
      */
-    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchByProfessiontype(String... values) {
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchByProfessiontype(Integer... values) {
         return fetch(Joboffer.JOBOFFER.PROFESSIONTYPE, values);
     }
 
@@ -170,5 +170,19 @@ public class JobofferDao extends DAOImpl<JobofferRecord, com.doteadore.recruitme
      */
     public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchByEndtime(LocalDateTime... values) {
         return fetch(Joboffer.JOBOFFER.ENDTIME, values);
+    }
+
+    /**
+     * Fetch records that have <code>position BETWEEN lowerInclusive AND upperInclusive</code>
+     */
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchRangeOfPosition(Integer lowerInclusive, Integer upperInclusive) {
+        return fetchRange(Joboffer.JOBOFFER.POSITION, lowerInclusive, upperInclusive);
+    }
+
+    /**
+     * Fetch records that have <code>position IN (values)</code>
+     */
+    public List<com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer> fetchByPosition(Integer... values) {
+        return fetch(Joboffer.JOBOFFER.POSITION, values);
     }
 }

@@ -15,17 +15,18 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Joboffer implements IJoboffer {
 
-    private static final long serialVersionUID = 1990692524;
+    private static final long serialVersionUID = -1551434017;
 
     private Integer       id;
     private String        company;
-    private String        professiontype;
+    private Integer       professiontype;
     private String        title;
     private String        description;
     private Integer       isdeleted;
     private LocalDateTime starttime;
     private String        city;
     private LocalDateTime endtime;
+    private Integer       position;
 
     public Joboffer() {}
 
@@ -39,18 +40,20 @@ public class Joboffer implements IJoboffer {
         this.starttime = value.getStarttime();
         this.city = value.getCity();
         this.endtime = value.getEndtime();
+        this.position = value.getPosition();
     }
 
     public Joboffer(
         Integer       id,
         String        company,
-        String        professiontype,
+        Integer       professiontype,
         String        title,
         String        description,
         Integer       isdeleted,
         LocalDateTime starttime,
         String        city,
-        LocalDateTime endtime
+        LocalDateTime endtime,
+        Integer       position
     ) {
         this.id = id;
         this.company = company;
@@ -61,6 +64,7 @@ public class Joboffer implements IJoboffer {
         this.starttime = starttime;
         this.city = city;
         this.endtime = endtime;
+        this.position = position;
     }
 
     @Override
@@ -84,12 +88,12 @@ public class Joboffer implements IJoboffer {
     }
 
     @Override
-    public String getProfessiontype() {
+    public Integer getProfessiontype() {
         return this.professiontype;
     }
 
     @Override
-    public void setProfessiontype(String professiontype) {
+    public void setProfessiontype(Integer professiontype) {
         this.professiontype = professiontype;
     }
 
@@ -154,6 +158,16 @@ public class Joboffer implements IJoboffer {
     }
 
     @Override
+    public Integer getPosition() {
+        return this.position;
+    }
+
+    @Override
+    public void setPosition(Integer position) {
+        this.position = position;
+    }
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("Joboffer (");
 
@@ -166,6 +180,7 @@ public class Joboffer implements IJoboffer {
         sb.append(", ").append(starttime);
         sb.append(", ").append(city);
         sb.append(", ").append(endtime);
+        sb.append(", ").append(position);
 
         sb.append(")");
         return sb.toString();
@@ -186,6 +201,7 @@ public class Joboffer implements IJoboffer {
         setStarttime(from.getStarttime());
         setCity(from.getCity());
         setEndtime(from.getEndtime());
+        setPosition(from.getPosition());
     }
 
     @Override

@@ -19,7 +19,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row16;
+import org.jooq.Row17;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Resume extends TableImpl<ResumeRecord> {
 
-    private static final long serialVersionUID = 1750854911;
+    private static final long serialVersionUID = 980813047;
 
     /**
      * The reference instance of <code>Recruitment.Resume</code>
@@ -88,7 +88,7 @@ public class Resume extends TableImpl<ResumeRecord> {
     /**
      * The column <code>Recruitment.Resume.education</code>. 最高学历
      */
-    public final TableField<ResumeRecord, String> EDUCATION = createField(DSL.name("education"), org.jooq.impl.SQLDataType.VARCHAR(10).nullable(false), this, "最高学历");
+    public final TableField<ResumeRecord, Integer> EDUCATION = createField(DSL.name("education"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "最高学历");
 
     /**
      * The column <code>Recruitment.Resume.city</code>. 所在城市
@@ -113,7 +113,7 @@ public class Resume extends TableImpl<ResumeRecord> {
     /**
      * The column <code>Recruitment.Resume.state</code>. 状态
      */
-    public final TableField<ResumeRecord, String> STATE = createField(DSL.name("state"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "状态");
+    public final TableField<ResumeRecord, Integer> STATE = createField(DSL.name("state"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "状态");
 
     /**
      * The column <code>Recruitment.Resume.isPassed</code>. 0表示未通过，1表示通过，2表示还没结果
@@ -129,6 +129,11 @@ public class Resume extends TableImpl<ResumeRecord> {
      * The column <code>Recruitment.Resume.postTime</code>. 投递时间
      */
     public final TableField<ResumeRecord, LocalDateTime> POSTTIME = createField(DSL.name("postTime"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false), this, "投递时间");
+
+    /**
+     * The column <code>Recruitment.Resume.companyID</code>. 公司号
+     */
+    public final TableField<ResumeRecord, String> COMPANYID = createField(DSL.name("companyID"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "公司号");
 
     /**
      * Create a <code>Recruitment.Resume</code> table reference
@@ -170,7 +175,7 @@ public class Resume extends TableImpl<ResumeRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.<Index>asList(Indexes.RESUME_RESUME_FK1, Indexes.RESUME_RESUME_FK2);
+        return Arrays.<Index>asList(Indexes.RESUME_RESUME_FK1, Indexes.RESUME_RESUME_FK2, Indexes.RESUME_RESUME_FK3);
     }
 
     @Override
@@ -190,7 +195,7 @@ public class Resume extends TableImpl<ResumeRecord> {
 
     @Override
     public List<ForeignKey<ResumeRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<ResumeRecord, ?>>asList(Keys.RESUME_FK1, Keys.RESUME_FK2);
+        return Arrays.<ForeignKey<ResumeRecord, ?>>asList(Keys.RESUME_FK1, Keys.RESUME_FK2, Keys.RESUME_FK3);
     }
 
     public Useraccont useraccont() {
@@ -199,6 +204,10 @@ public class Resume extends TableImpl<ResumeRecord> {
 
     public Joboffer joboffer() {
         return new Joboffer(this, Keys.RESUME_FK2);
+    }
+
+    public Education education() {
+        return new Education(this, Keys.RESUME_FK3);
     }
 
     @Override
@@ -228,11 +237,11 @@ public class Resume extends TableImpl<ResumeRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row16 type methods
+    // Row17 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row16<Integer, String, Integer, String, Integer, String, Integer, String, String, String, String, String, String, Integer, LocalDateTime, LocalDateTime> fieldsRow() {
-        return (Row16) super.fieldsRow();
+    public Row17<Integer, String, Integer, String, Integer, String, Integer, Integer, String, String, String, String, Integer, Integer, LocalDateTime, LocalDateTime, String> fieldsRow() {
+        return (Row17) super.fieldsRow();
     }
 }

@@ -22,7 +22,7 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements Record7<Integer, Integer, Integer, String, String, LocalDateTime, String>, IComment {
 
-    private static final long serialVersionUID = -329152429;
+    private static final long serialVersionUID = -1713584275;
 
     /**
      * Setter for <code>Recruitment.Comment.id</code>.
@@ -57,18 +57,18 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
     }
 
     /**
-     * Setter for <code>Recruitment.Comment.accpuntType</code>. 1为企业，2为管理员，3为用户
+     * Setter for <code>Recruitment.Comment.accountType</code>. 1为企业，2为管理员，3为用户
      */
     @Override
-    public void setAccpunttype(Integer value) {
+    public void setAccounttype(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>Recruitment.Comment.accpuntType</code>. 1为企业，2为管理员，3为用户
+     * Getter for <code>Recruitment.Comment.accountType</code>. 1为企业，2为管理员，3为用户
      */
     @Override
-    public Integer getAccpunttype() {
+    public Integer getAccounttype() {
         return (Integer) get(2);
     }
 
@@ -171,7 +171,7 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
 
     @Override
     public Field<Integer> field3() {
-        return Comment.COMMENT.ACCPUNTTYPE;
+        return Comment.COMMENT.ACCOUNTTYPE;
     }
 
     @Override
@@ -206,7 +206,7 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
 
     @Override
     public Integer component3() {
-        return getAccpunttype();
+        return getAccounttype();
     }
 
     @Override
@@ -241,7 +241,7 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
 
     @Override
     public Integer value3() {
-        return getAccpunttype();
+        return getAccounttype();
     }
 
     @Override
@@ -278,7 +278,7 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
 
     @Override
     public CommentRecord value3(Integer value) {
-        setAccpunttype(value);
+        setAccounttype(value);
         return this;
     }
 
@@ -326,7 +326,7 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
     public void from(IComment from) {
         setId(from.getId());
         setJobofferid(from.getJobofferid());
-        setAccpunttype(from.getAccpunttype());
+        setAccounttype(from.getAccounttype());
         setAccountid(from.getAccountid());
         setResponseid(from.getResponseid());
         setTime(from.getTime());
@@ -353,12 +353,12 @@ public class CommentRecord extends UpdatableRecordImpl<CommentRecord> implements
     /**
      * Create a detached, initialised CommentRecord
      */
-    public CommentRecord(Integer id, Integer jobofferid, Integer accpunttype, String accountid, String responseid, LocalDateTime time, String content) {
+    public CommentRecord(Integer id, Integer jobofferid, Integer accounttype, String accountid, String responseid, LocalDateTime time, String content) {
         super(Comment.COMMENT);
 
         set(0, id);
         set(1, jobofferid);
-        set(2, accpunttype);
+        set(2, accounttype);
         set(3, accountid);
         set(4, responseid);
         set(5, time);

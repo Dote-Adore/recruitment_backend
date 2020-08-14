@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment extends TableImpl<CommentRecord> {
 
-    private static final long serialVersionUID = 846955049;
+    private static final long serialVersionUID = 1631994342;
 
     /**
      * The reference instance of <code>Recruitment.Comment</code>
@@ -61,9 +61,9 @@ public class Comment extends TableImpl<CommentRecord> {
     public final TableField<CommentRecord, Integer> JOBOFFERID = createField(DSL.name("jobOfferId"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "外键对应（JobOffer：id)");
 
     /**
-     * The column <code>Recruitment.Comment.accpuntType</code>. 1为企业，2为管理员，3为用户
+     * The column <code>Recruitment.Comment.accountType</code>. 1为企业，2为管理员，3为用户
      */
-    public final TableField<CommentRecord, Integer> ACCPUNTTYPE = createField(DSL.name("accpuntType"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "1为企业，2为管理员，3为用户");
+    public final TableField<CommentRecord, Integer> ACCOUNTTYPE = createField(DSL.name("accountType"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "1为企业，2为管理员，3为用户");
 
     /**
      * The column <code>Recruitment.Comment.accountId</code>. 评论者id 对应（UserAccount:account)

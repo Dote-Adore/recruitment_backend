@@ -31,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Useraccont extends TableImpl<UseraccontRecord> {
 
-    private static final long serialVersionUID = 681340208;
+    private static final long serialVersionUID = -745855501;
 
     /**
      * The reference instance of <code>Recruitment.UserAccont</code>
@@ -64,7 +64,7 @@ public class Useraccont extends TableImpl<UseraccontRecord> {
     /**
      * The column <code>Recruitment.UserAccont.avatarUrl</code>. 头像
      */
-    public final TableField<UseraccontRecord, String> AVATARURL = createField(DSL.name("avatarUrl"), org.jooq.impl.SQLDataType.VARCHAR(50), this, "头像");
+    public final TableField<UseraccontRecord, String> AVATARURL = createField(DSL.name("avatarUrl"), org.jooq.impl.SQLDataType.VARCHAR(255), this, "头像");
 
     /**
      * Create a <code>Recruitment.UserAccont</code> table reference

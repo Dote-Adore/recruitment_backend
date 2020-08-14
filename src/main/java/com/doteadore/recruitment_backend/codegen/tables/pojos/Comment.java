@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment implements IComment {
 
-    private static final long serialVersionUID = -1967575402;
+    private static final long serialVersionUID = 1084395219;
 
     private Integer       id;
     private Integer       jobofferid;
-    private Integer       accpunttype;
+    private Integer       accounttype;
     private String        accountid;
     private String        responseid;
     private LocalDateTime time;
@@ -30,7 +30,7 @@ public class Comment implements IComment {
     public Comment(IComment value) {
         this.id = value.getId();
         this.jobofferid = value.getJobofferid();
-        this.accpunttype = value.getAccpunttype();
+        this.accounttype = value.getAccounttype();
         this.accountid = value.getAccountid();
         this.responseid = value.getResponseid();
         this.time = value.getTime();
@@ -40,7 +40,7 @@ public class Comment implements IComment {
     public Comment(
         Integer       id,
         Integer       jobofferid,
-        Integer       accpunttype,
+        Integer       accounttype,
         String        accountid,
         String        responseid,
         LocalDateTime time,
@@ -48,7 +48,7 @@ public class Comment implements IComment {
     ) {
         this.id = id;
         this.jobofferid = jobofferid;
-        this.accpunttype = accpunttype;
+        this.accounttype = accounttype;
         this.accountid = accountid;
         this.responseid = responseid;
         this.time = time;
@@ -76,13 +76,13 @@ public class Comment implements IComment {
     }
 
     @Override
-    public Integer getAccpunttype() {
-        return this.accpunttype;
+    public Integer getAccounttype() {
+        return this.accounttype;
     }
 
     @Override
-    public void setAccpunttype(Integer accpunttype) {
-        this.accpunttype = accpunttype;
+    public void setAccounttype(Integer accounttype) {
+        this.accounttype = accounttype;
     }
 
     @Override
@@ -131,7 +131,7 @@ public class Comment implements IComment {
 
         sb.append(id);
         sb.append(", ").append(jobofferid);
-        sb.append(", ").append(accpunttype);
+        sb.append(", ").append(accounttype);
         sb.append(", ").append(accountid);
         sb.append(", ").append(responseid);
         sb.append(", ").append(time);
@@ -149,7 +149,7 @@ public class Comment implements IComment {
     public void from(IComment from) {
         setId(from.getId());
         setJobofferid(from.getJobofferid());
-        setAccpunttype(from.getAccpunttype());
+        setAccounttype(from.getAccounttype());
         setAccountid(from.getAccountid());
         setResponseid(from.getResponseid());
         setTime(from.getTime());

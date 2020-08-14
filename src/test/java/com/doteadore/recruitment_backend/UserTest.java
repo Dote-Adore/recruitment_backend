@@ -3,17 +3,25 @@ package com.doteadore.recruitment_backend;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Resume;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Userdetailinfo;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Useraccont;
+import com.doteadore.recruitment_backend.service.ResumeService;
 import com.doteadore.recruitment_backend.service.UserService;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.juli.logging.Log;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
+@Slf4j
 public class UserTest {
 
     @Autowired
     UserService userService;
+    @Autowired
+    ResumeService resumeService;
 
     @Test
     void Login()
@@ -50,6 +58,9 @@ public class UserTest {
     void GetResumes()
     {
         Resume resume = new Resume();
-        resume.setName("测试库");
+        resume.setUserid("1379382440");
+        List<Resume> res = resumeService.GetResumesDetail(resume);
+        log.info(res.toString());
+
     }
 }

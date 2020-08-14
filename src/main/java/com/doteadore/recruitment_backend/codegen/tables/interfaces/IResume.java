@@ -87,12 +87,12 @@ public interface IResume extends Serializable {
     /**
      * Setter for <code>Recruitment.Resume.education</code>. 最高学历
      */
-    public void setEducation(String value);
+    public void setEducation(Integer value);
 
     /**
      * Getter for <code>Recruitment.Resume.education</code>. 最高学历
      */
-    public String getEducation();
+    public Integer getEducation();
 
     /**
      * Setter for <code>Recruitment.Resume.city</code>. 所在城市
@@ -137,12 +137,12 @@ public interface IResume extends Serializable {
     /**
      * Setter for <code>Recruitment.Resume.state</code>. 状态
      */
-    public void setState(String value);
+    public void setState(Integer value);
 
     /**
      * Getter for <code>Recruitment.Resume.state</code>. 状态
      */
-    public String getState();
+    public Integer getState();
 
     /**
      * Setter for <code>Recruitment.Resume.isPassed</code>. 0表示未通过，1表示通过，2表示还没结果
@@ -173,6 +173,16 @@ public interface IResume extends Serializable {
      * Getter for <code>Recruitment.Resume.postTime</code>. 投递时间
      */
     public LocalDateTime getPosttime();
+
+    /**
+     * Setter for <code>Recruitment.Resume.companyID</code>. 公司号
+     */
+    public void setCompanyid(String value);
+
+    /**
+     * Getter for <code>Recruitment.Resume.companyID</code>. 公司号
+     */
+    public String getCompanyid();
 
     // -------------------------------------------------------------------------
     // FROM and INTO
