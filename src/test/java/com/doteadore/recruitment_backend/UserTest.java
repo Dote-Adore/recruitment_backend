@@ -59,8 +59,6 @@ public class UserTest {
     {
         Resume resume = new Resume();
         resume.setUserid("1379382440");
-        List<Resume> res = resumeService.GetResumesDetail(resume);
-        log.info(res.toString());
 
     }
 }

@@ -6,7 +6,9 @@ import com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Resume;
 import com.doteadore.recruitment_backend.common.mybatisplus.ApiController;
 import com.doteadore.recruitment_backend.common.mybatisplus.R;
+import com.doteadore.recruitment_backend.service.AdvService;
 import com.doteadore.recruitment_backend.service.CompanyService;
+import com.doteadore.recruitment_backend.service.JobOfferService;
 import com.doteadore.recruitment_backend.service.ResumeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +21,10 @@ public class CompanyController extends ApiController {
     CompanyService companyService;
     @Autowired
     ResumeService resumeService;
-
+    @Autowired
+    AdvService advService;
+    @Autowired
+    JobOfferService jobOfferService;
     // 公司注册
     @PostMapping("register")
     R register(@RequestBody Companyaccount companyaccount)
@@ -55,7 +60,7 @@ public class CompanyController extends ApiController {
     @PostMapping("applicateAdv")
     R applicateHomeAdv(@RequestBody Homepushapplication val)
     {
-        return null;
+        return success(advService.applicateHomeAdv(val));
     }
 
 
@@ -64,19 +69,19 @@ public class CompanyController extends ApiController {
     @PostMapping("getAdvApplication")
     R getMyAdvApplication(@RequestParam("companyAccount") String account)
     {
-        return null;
+        return success(advService.getCompAdvApplication(account));
     }
     // 发布招聘
     @PostMapping("postJobOffer")
     R postJobOffer(@RequestBody Joboffer val)
     {
-        return null;
+        return success(jobOfferService.addAJob(val));
     }
     // 删除一个招聘
     @PostMapping("deleteJob")
     R deleteAOffer(@RequestParam("jobID") int id)
     {
-        return null;
+        return success(jobOfferService.deleteAJob(id));
     }
 
     @PostMapping("getInfo")

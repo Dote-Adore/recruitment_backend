@@ -35,7 +35,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment extends TableImpl<CommentRecord> {
 
-    private static final long serialVersionUID = 1631994342;
+    private static final long serialVersionUID = -20434924;
 
     /**
      * The reference instance of <code>Recruitment.Comment</code>
@@ -73,7 +73,7 @@ public class Comment extends TableImpl<CommentRecord> {
     /**
      * The column <code>Recruitment.Comment.responseId</code>. 回复者id 对应（UserAccount:account)
      */
-    public final TableField<CommentRecord, String> RESPONSEID = createField(DSL.name("responseId"), org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "回复者id 对应（UserAccount:account)");
+    public final TableField<CommentRecord, Integer> RESPONSEID = createField(DSL.name("responseId"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "回复者id 对应（UserAccount:account)");
 
     /**
      * The column <code>Recruitment.Comment.time</code>. 评论或回复时间
@@ -145,19 +145,15 @@ public class Comment extends TableImpl<CommentRecord> {
 
     @Override
     public List<ForeignKey<CommentRecord, ?>> getReferences() {
-        return Arrays.<ForeignKey<CommentRecord, ?>>asList(Keys.COMMENT_FK1, Keys.COMMENT_FK2, Keys.COMMENT_FK3);
+        return Arrays.<ForeignKey<CommentRecord, ?>>asList(Keys.COMMENT_FK1, Keys.COMMENT_FK2);
     }
 
     public Joboffer joboffer() {
         return new Joboffer(this, Keys.COMMENT_FK1);
     }
 
-    public Useraccont commentFk2() {
+    public Useraccont useraccont() {
         return new Useraccont(this, Keys.COMMENT_FK2);
-    }
-
-    public Useraccont commentFk3() {
-        return new Useraccont(this, Keys.COMMENT_FK3);
     }
 
     @Override
@@ -191,7 +187,7 @@ public class Comment extends TableImpl<CommentRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, Integer, Integer, String, String, LocalDateTime, String> fieldsRow() {
+    public Row7<Integer, Integer, Integer, String, Integer, LocalDateTime, String> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 }

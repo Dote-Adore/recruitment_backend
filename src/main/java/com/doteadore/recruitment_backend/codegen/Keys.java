@@ -83,7 +83,6 @@ public class Keys {
 
     public static final ForeignKey<CommentRecord, JobofferRecord> COMMENT_FK1 = ForeignKeys0.COMMENT_FK1;
     public static final ForeignKey<CommentRecord, UseraccontRecord> COMMENT_FK2 = ForeignKeys0.COMMENT_FK2;
-    public static final ForeignKey<CommentRecord, UseraccontRecord> COMMENT_FK3 = ForeignKeys0.COMMENT_FK3;
     public static final ForeignKey<HomepushRecord, JobofferRecord> HOMEPUSH_FK1 = ForeignKeys0.HOMEPUSH_FK1;
     public static final ForeignKey<HomepushRecord, AdminaccountRecord> HOMEPUSH_FK2 = ForeignKeys0.HOMEPUSH_FK2;
     public static final ForeignKey<HomepushapplicationRecord, CompanyaccountRecord> HOMEPUSHAPPLICATION_FK1 = ForeignKeys0.HOMEPUSHAPPLICATION_FK1;
@@ -132,7 +131,6 @@ public class Keys {
     private static class ForeignKeys0 {
         public static final ForeignKey<CommentRecord, JobofferRecord> COMMENT_FK1 = Internal.createForeignKey(Keys.KEY_JOBOFFER_PRIMARY, Comment.COMMENT, "Comment_fk1", new TableField[] { Comment.COMMENT.JOBOFFERID }, true);
         public static final ForeignKey<CommentRecord, UseraccontRecord> COMMENT_FK2 = Internal.createForeignKey(Keys.KEY_USERACCONT_PRIMARY, Comment.COMMENT, "Comment_fk2", new TableField[] { Comment.COMMENT.ACCOUNTID }, true);
-        public static final ForeignKey<CommentRecord, UseraccontRecord> COMMENT_FK3 = Internal.createForeignKey(Keys.KEY_USERACCONT_PRIMARY, Comment.COMMENT, "Comment_fk3", new TableField[] { Comment.COMMENT.RESPONSEID }, true);
         public static final ForeignKey<HomepushRecord, JobofferRecord> HOMEPUSH_FK1 = Internal.createForeignKey(Keys.KEY_JOBOFFER_PRIMARY, Homepush.HOMEPUSH, "HomePush_fk1", new TableField[] { Homepush.HOMEPUSH.JOBOFFER }, true);
         public static final ForeignKey<HomepushRecord, AdminaccountRecord> HOMEPUSH_FK2 = Internal.createForeignKey(Keys.KEY_ADMINACCOUNT_PRIMARY, Homepush.HOMEPUSH, "HomePush_fk2", new TableField[] { Homepush.HOMEPUSH.HANDLEADMINID }, true);
         public static final ForeignKey<HomepushapplicationRecord, CompanyaccountRecord> HOMEPUSHAPPLICATION_FK1 = Internal.createForeignKey(Keys.KEY_COMPANYACCOUNT_PRIMARY, Homepushapplication.HOMEPUSHAPPLICATION, "HomePushApplication_fk1", new TableField[] { Homepushapplication.HOMEPUSHAPPLICATION.COMPANYID }, true);

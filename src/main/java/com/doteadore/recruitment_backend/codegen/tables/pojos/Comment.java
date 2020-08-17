@@ -15,13 +15,13 @@ import java.time.LocalDateTime;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Comment implements IComment {
 
-    private static final long serialVersionUID = 1084395219;
+    private static final long serialVersionUID = 1302917517;
 
     private Integer       id;
     private Integer       jobofferid;
     private Integer       accounttype;
     private String        accountid;
-    private String        responseid;
+    private Integer       responseid;
     private LocalDateTime time;
     private String        content;
 
@@ -42,7 +42,7 @@ public class Comment implements IComment {
         Integer       jobofferid,
         Integer       accounttype,
         String        accountid,
-        String        responseid,
+        Integer       responseid,
         LocalDateTime time,
         String        content
     ) {
@@ -96,12 +96,12 @@ public class Comment implements IComment {
     }
 
     @Override
-    public String getResponseid() {
+    public Integer getResponseid() {
         return this.responseid;
     }
 
     @Override
-    public void setResponseid(String responseid) {
+    public void setResponseid(Integer responseid) {
         this.responseid = responseid;
     }
 

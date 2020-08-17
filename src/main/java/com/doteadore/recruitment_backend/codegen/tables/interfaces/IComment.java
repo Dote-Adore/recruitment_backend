@@ -57,12 +57,12 @@ public interface IComment extends Serializable {
     /**
      * Setter for <code>Recruitment.Comment.responseId</code>. 回复者id 对应（UserAccount:account)
      */
-    public void setResponseid(String value);
+    public void setResponseid(Integer value);
 
     /**
      * Getter for <code>Recruitment.Comment.responseId</code>. 回复者id 对应（UserAccount:account)
      */
-    public String getResponseid();
+    public Integer getResponseid();
 
     /**
      * Setter for <code>Recruitment.Comment.time</code>. 评论或回复时间
