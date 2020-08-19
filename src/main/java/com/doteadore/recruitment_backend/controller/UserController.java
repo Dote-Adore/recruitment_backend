@@ -28,9 +28,15 @@ public class UserController extends ApiController {
     @Autowired
     ResumeService resumeService;
 
+    /**
+     * 登录
+     * @param id
+     * @param psw
+     * @return
+     */
     @PostMapping("login")
-    protected R login(@RequestParam("userAccount")String id,
-                   @RequestParam("psw")String psw) {
+    protected R login(@RequestParam("account")String id,
+                   @RequestParam("password")String psw) {
         JSONObject jsonObject = new JSONObject();
         Useraccont res = userService.login(id,psw);
         if (res!=null) {
@@ -43,8 +49,13 @@ public class UserController extends ApiController {
             return success(false);
     }
 
+    /**
+     * 注册
+     * @param useraccont
+     * @return
+     */
     @PostMapping("register")
-    protected R Register(@RequestParam Useraccont useraccont)
+    protected R Register(@RequestBody Useraccont useraccont)
     {
         if(userService.registerAUser(useraccont)==true)
         {
@@ -76,12 +87,22 @@ public class UserController extends ApiController {
         }
     }
 
+    /**
+     * 编辑详情
+     * @param userdetailinfo
+     * @return
+     */
     @PostMapping("editDetail")
     protected R editDetails(@RequestBody Userdetailinfo userdetailinfo)
     {
         return success(userService.editDetailsInfo(userdetailinfo));
     }
-    // 获取用户信息，包括详情
+
+    /**
+     * 获取用户信息，包括详情
+     * @param AccountID
+     * @return
+     */
     @GetMapping("getUserInfo")
     protected R getUserInfo(@RequestParam("accountID") String AccountID)
     {
@@ -92,6 +113,12 @@ public class UserController extends ApiController {
         jsonObject.put("details",userdetailinfo);
         return success(jsonObject);
     }
+
+    /**
+     * 获取我所有的简历
+     * @param accountID
+     * @return
+     */
     @GetMapping("myResume")
     protected R getMyResume(@RequestParam String accountID) {
         Resume conditions = new Resume();
@@ -99,6 +126,12 @@ public class UserController extends ApiController {
 
         return  success(resumeService.GetResumesDetail(conditions));
     }
+
+    /**
+     * 提交一个简历
+     * @param resume
+     * @return
+     */
     @PostMapping("sendResume")
     protected R setMyResume(@RequestBody Resume resume)
     {

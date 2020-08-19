@@ -5,6 +5,7 @@ import com.doteadore.recruitment_backend.codegen.tables.pojos.Homepushapplicatio
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Joboffer;
 import com.doteadore.recruitment_backend.codegen.tables.pojos.Resume;
 import com.doteadore.recruitment_backend.common.mybatisplus.ApiController;
+import com.doteadore.recruitment_backend.common.mybatisplus.IErrorCode;
 import com.doteadore.recruitment_backend.common.mybatisplus.R;
 import com.doteadore.recruitment_backend.service.AdvService;
 import com.doteadore.recruitment_backend.service.CompanyService;
@@ -30,14 +31,45 @@ public class CompanyController extends ApiController {
     R register(@RequestBody Companyaccount companyaccount)
     {
 
-        return  success(companyService.register(companyaccount));
+        if(companyService.register(companyaccount)==true)
+        {
+            return R.restResult(true, new IErrorCode() {
+                @Override
+                public long getCode() {
+                    return 1;
+                }
+
+                @Override
+                public String getMsg() {
+                    return "注册成功！";
+                }
+            });
+        }
+        else
+        {
+            return R.restResult(false, new IErrorCode() {
+                @Override
+                public long getCode() {
+                    return -1;
+                }
+
+                @Override
+                public String getMsg() {
+                    return "注册失败！该用户已被注册！";
+                }
+            });
+        }
     }
 
     // 登录
     @PostMapping("login")
-    R login(@RequestParam("id")String id,@RequestParam("password")String password)
+    R login(@RequestParam("account")String id,@RequestParam("password")String password)
     {
-        return success(companyService.Login(id,password));
+        com.doteadore.recruitment_backend.codegen.tables.pojos.Companyaccount  res =  companyService.Login(id,password);
+        if(res!=null){
+            return success(res);
+        }
+        else return success(false);
     }
 
     // 获取该公司下所有的简历
@@ -84,6 +116,7 @@ public class CompanyController extends ApiController {
         return success(jobOfferService.deleteAJob(id));
     }
 
+    // 获得某个公司的信息
     @PostMapping("getInfo")
     R getInfo(@RequestParam("CompanyAccount")String account)
     {

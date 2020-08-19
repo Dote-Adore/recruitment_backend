@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.rmi.server.ExportException;
+import java.util.List;
 
 
 @Service("CompanyService")
@@ -39,9 +40,10 @@ public class CompanyServiceImpl implements CompanyService {
         try {
 
             com.doteadore.recruitment_backend.codegen.tables.Companyaccount companyTable = new com.doteadore.recruitment_backend.codegen.tables.Companyaccount();
-            return dslContext.select(companyTable.ACCOUNT, companyTable.NAME, companyTable.AVATARURL, companyTable.TELE, companyTable.URL, companyTable.DESCRIPTION).from(companyTable)
+            List<Companyaccount> res = dslContext.select(companyTable.ACCOUNT, companyTable.NAME, companyTable.AVATARURL, companyTable.TELE, companyTable.URL, companyTable.DESCRIPTION).from(companyTable)
                     .where(companyTable.ACCOUNT.eq(id).and(companyTable.PASSWORD.eq(psw)))
-                    .fetchOne().into(Companyaccount.class);
+                    .fetch().into(Companyaccount.class);
+            return res.get(0);
         }catch (Exception e)
         {
             e.printStackTrace();
